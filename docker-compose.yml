@@ -3,8 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: cat-adoption-api
-    container_name: cat-adoption-api
+    image: cat_adoption_api
+    container_name: cat_adoption_api
     restart: unless-stopped
     working_dir: /var/www
     volumes:
@@ -31,7 +31,7 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: cat-adoption
+      MYSQL_DATABASE: cat_adoption
       MYSQL_USER: cat
       MYSQL_PASSWORD: meow
     ports:
@@ -41,10 +41,28 @@ services:
     networks:
       - cat
 
+  test_db:
+    image: mysql:8.0
+    container_name: mysql_test
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cat_adoption_test
+      MYSQL_USER: cat
+      MYSQL_PASSWORD: meow
+    ports:
+      - '3307:3306'
+    volumes:
+      - dbtestdata:/var/lib/mysql
+    networks:
+      - cat
+
 networks:
   cat:
     driver: bridge
 
 volumes:
   dbdata:
+    driver: local
+  dbtestdata:
     driver: local
