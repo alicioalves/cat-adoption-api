@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Cat extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     * 
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'age',
+        'breed',
+        'description',
+        'image',
+        'adopted'
+    ];
 }
