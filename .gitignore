@@ -1,19 +1,104 @@
-/.phpunit.cache
-/node_modules
-/public/build
-/public/hot
-/public/storage
+# Laravel specific files
+/vendor/
+/node_modules/
+public/hot
+public/storage
+public/mix-manifest.json
+public/css/*.map
+public/js/*.map
+
+# Laravel cache and logs
 /storage/*.key
-/vendor
-.env
-.env.backup
-.env.production
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
-auth.json
-npm-debug.log
+/storage/debugbar/*
+/storage/framework/cache/*
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+/storage/logs/*
+/bootstrap/cache/*.php
+
+# Composer files
+composer.lock
+composer.phar
+
+# Composer cache
+/vendor/composer/*
+/vendor/bin/*
+/vendor/.htaccess
+
+# npm and yarn
+yarn.lock
+npm-debug.log*
 yarn-error.log
-/.fleet
-/.idea
-/.vscode
+
+# Environment and config files
+.env
+.env.*.php
+.phpunit.result.cache
+/.phpunit.result.cache
+/.env.testing
+/.php_cs.cache
+
+# IDE and editor specific files
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+
+# MacOS files
+.DS_Store
+
+# Linux files
+*~
+
+# Windows files
+Thumbs.db
+ehthumbs.db
+
+# Backup files
+*.bak
+*.backup
+*.swp
+*.swo
+*~
+
+# Symfony
+/.symfony/cache
+/.symfony/log
+
+# Laravel Spark
+.env.local.php
+.env.backup
+.env.backup.*
+
+# Swoole extensions
+/.ide_helper.php
+/.phpstorm.meta.php
+/_ide_helper_models.php
+/_ide_helper_models.php
+
+# Coverage reports
+coverage/
+
+# Backup and temporary files
+*.bak
+*.backup
+*.tmp
+
+# Specific files to ignore
+Homestead.yaml
+Homestead.json
+
+# Cache files from Composer
+/cache/
+/.tmp/
+composer.lock
+composer.phar
+/vendor/composer/*
+/vendor/bin/*
+/vendor/.htaccess
+
+# Ignore Composer cache directory
+.composer/
+.composer/cache/
