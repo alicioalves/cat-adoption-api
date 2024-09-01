@@ -52,6 +52,7 @@ class CatController extends Controller
             'breed' => 'required|string|max:255',
             'description' => 'nullable|string|max:255',
             'image' => 'nullable|string',
+            'adopted' => 'nullable|boolean',
         ]);
 
         $cat->update($validatedData);
