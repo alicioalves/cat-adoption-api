@@ -3,8 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: cat-adoption-app
-    container_name: cat-adoption-app
+    image: cat-adoption-api
+    container_name: cat-adoption-api
     restart: unless-stopped
     working_dir: /var/www
     volumes:
