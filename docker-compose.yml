@@ -1,0 +1,50 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cat-adoption-app
+    container_name: cat-adoption-app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - cat
+
+  webserver:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - '8080:80'
+    volumes:
+      - ./:/var/www
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - cat
+
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cat-adoption
+      MYSQL_USER: cat
+      MYSQL_PASSWORD: meow
+    ports:
+      - '3306:3306'
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - cat
+
+networks:
+  cat:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
